@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Controllers;
-use App\Http\Controllers\BlogController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +15,9 @@ use App\Http\Controllers\BlogController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welocome', function () {
     return view('welcome');
 });
-Route::get('/blog', 'App\Http\Controllerd\BlogController@index');
-//Auth::routes();
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-//Route::get('/blog', [App\Http\Controllers\BlogController::class, 'index.php'])->name('blog');
+Route::get('/blog', [App\Http\Controllers\BlogController::class, 'index']);

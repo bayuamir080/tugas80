@@ -2,26 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blogg;
 use Illuminate\Http\Request;
-use App\Blogg;
-use App\Models\Blogg as ModelsBlogg;
+use Illuminate\View\ViewServiceProvider;
 
 class BlogController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $data_blogs = ModelsBlogg::all();
-        return View('blog', compact('data_blogs'));
+        $blog = Blogg::all();
+        return view('layouts.index', compact('blog'));
     }
 
     /**

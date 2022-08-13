@@ -77,7 +77,7 @@
         </nav>
 
         <main class="py-4">
-            @yield('oke')
+            @yield('isi')
         </main>
     </div>
 </body>

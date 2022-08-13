@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('oke')
+@section('isi')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -8,19 +8,19 @@
                 <div class="card-header">DATA BLOG</div>
 
                 <div class="card-body">
-                    <table class="table table-striped">
+                    <table class="table table-bordered table-hover table-striped">
                         <tr>
                             <th>Author</th>
                             <th>Title</th>
                             <th>Body</th>
                             <th>Keyword</th>
                         </tr>
-                        @foreach($data_blogs as $item)
+                        @foreach($blog as $u)
                         <tr>
-                            <td>{{$item['author']}}</td>
-                            <td>{{$item['title']}}</td>
-                            <td>{{$item['body']}}</td>
-                            <td>{{$item['keyword']}}</td>
+                            <td>{{$u['author']}}</td>
+                            <td>{{$u['title']}}</td>
+                            <td>{{$u['body']}}</td>
+                            <td>{{$u['keyword']}}</td>
                         </tr>
 
                         @endforeach
