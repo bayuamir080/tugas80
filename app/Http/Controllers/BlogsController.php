@@ -2,17 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Blogg;
 use Illuminate\Http\Request;
+use App\Models\Blogg;
 use Illuminate\View\ViewServiceProvider;
 
-class BlogController extends Controller
+class BlogsController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $blog = Blogg::all();
-        return view('layouts.index', compact('blog'));
+        return view('index', compact('blog'));
     }
 
     /**
@@ -22,7 +26,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return view('tambah');
     }
 
     /**
@@ -33,7 +37,8 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Blogg::create($request->all());
+        return redirect()->route('blog');
     }
 
     /**

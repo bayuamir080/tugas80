@@ -20,4 +20,6 @@ Route::get('/welocome', function () {
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/blog', [App\Http\Controllers\BlogController::class, 'index']);
+Route::get('/blog', [App\Http\Controllers\BlogsController::class, 'index'])->name('blog');
+Route::get('/blog/tambah', [App\Http\Controllers\BlogsController::class, 'create'])->name('blog.tambah');
+Route::PUT('/blog/store', [App\Http\Controllers\BlogsController::class, 'store'])->name('blog.store');

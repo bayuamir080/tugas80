@@ -9,4 +9,5 @@ class Blogg extends Model
 {
     //use HasFactory;
     protected $table = 'blog';
+    protected $guarded = [];
 }
