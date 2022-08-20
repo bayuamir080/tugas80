@@ -13,7 +13,7 @@
                     <br />
                     <table class="table table-bordered table-hover table-striped">
                         <tr>
-                            <th>NO</th>
+                            <th>ID</th>
                             <th>Author</th>
                             <th>Title</th>
                             <th>Body</th>
@@ -22,10 +22,13 @@
 
 
                         </tr>
+                        @php $no=0; @endphp
                         @foreach($blog as $u)
+                        @php $no++; @endphp
                         <tr>
 
-                            <td>{{$u['id']}}</td>
+
+                            <td>{{$no}}</td>
                             <td>{{$u['author']}}</td>
                             <td>{{$u['title']}}</td>
                             <td>{{$u['body']}}</td>
@@ -33,7 +36,8 @@
 
 
                             <td>
-                                Update | Delete </td>
+                                <a href="{{route('blog.edit',$u['id'])}}" class="btn btn-primary">EDIT</a>
+                                <a href="{{route('blog.hapus',$u['id'])}}" class="btn btn-primary">HAPUS</a>
                         </tr>
 
                         @endforeach

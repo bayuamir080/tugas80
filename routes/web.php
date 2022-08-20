@@ -22,4 +22,7 @@ Route::get('/welocome', function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/blog', [App\Http\Controllers\BlogsController::class, 'index'])->name('blog');
 Route::get('/blog/tambah', [App\Http\Controllers\BlogsController::class, 'create'])->name('blog.tambah');
+Route::get('/blog/edit/{id}', [App\Http\Controllers\BlogsController::class, 'edit'])->name('blog.edit');
+Route::get('/blog/hapus/{id}', [App\Http\Controllers\BlogsController::class, 'destroy'])->name('blog.hapus');
 Route::PUT('/blog/store', [App\Http\Controllers\BlogsController::class, 'store'])->name('blog.store');
+Route::PUT('/blog/update/{id}', [App\Http\Controllers\BlogsController::class, 'update'])->name('blog.update');

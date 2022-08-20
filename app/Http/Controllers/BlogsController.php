@@ -60,7 +60,8 @@ class BlogsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Blogg::where('id', $id)->firstorfail();
+        return view('editdata', compact('data'));
     }
 
     /**
@@ -72,7 +73,14 @@ class BlogsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Blogg::where('id', $id)
+            ->update([
+                'author' => $request['author'],
+                'title' => $request['title'],
+                'body' => $request['body'],
+                'keyword' => $request['keyword']
+            ]);
+        return redirect()->route('blog');
     }
 
     /**
@@ -83,6 +91,8 @@ class BlogsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Blogg::where('id', $id)
+            ->delete();
+        return redirect()->route('blog');
     }
 }
